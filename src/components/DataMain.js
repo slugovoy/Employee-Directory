@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import DataTable from "./DataTable";
 import Search from "./Search";
 
-const url = "https://randomuser.me/api/?results=200&nat=us";
+const url = "https://randomuser.me/api/?results=10&nat=us";
 
 class DataMain extends Component {
   state = {

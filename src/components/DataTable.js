@@ -4,7 +4,7 @@ import DataBody from "./DataBody";
 function DataTable({ employees }) {
   return (
     <>
-      <table class="table">
+      <table className="table">
         <thead>
           <tr>
             <th scope="col">Picture</th>
