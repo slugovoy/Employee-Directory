@@ -8,7 +8,8 @@ class DataMain extends Component {
   state = {
     employees: [],
     searchedEmployees: [],
-    order: ""
+    order: "",
+    search: "",
   };
 
   async componentDidMount() {
@@ -18,57 +19,63 @@ class DataMain extends Component {
       return a.name.last.localeCompare(b.name.last);
     });
 
-    this.setState({ 
+    this.setState({
       employees: ascSort,
       searchedEmployees: ascSort,
-      order: "ascend"
-     });
-    console.log(this.state.employees)
+      order: "ascend",
+    });
   }
 
-  // handleSearch = event => {
+  handleSearch = (event) => {
+    event.preventDefault();
 
-  //   const { employees } = this.state.employees
-    
-  //   let charsFoFilter= event.target.value.trim();
-  //   // let newEmpArray = employees.filter(employee => )
+    const employees = this.state.employees;
 
-  //   // Updating the input's state
-  //   this.setState({
-  //     [searchedEmployees]: newEmpArray
-  //   });
-  // }
+    let charsForFilter = event.target.value.toLowerCase().trim();
 
-  
-    sortByName = () => {
-      if(this.state.order === "ascend"){
+    this.setState({
+      search: charsForFilter,
+    });
 
-        const sorted = [...this.state.employees]
-        .sort((a, b) => {
-          return b.name.last.localeCompare(a.name.last);
-        });
-        this.setState({employees: sorted,
-          searchedEmployees: sorted,
-          order: "descend"
-        });
-      } else {
-        const sorted = [...this.state.employees]
-        .sort((a, b) => {
-          return a.name.last.localeCompare(b.name.last);
-        });
-        this.setState({employees: sorted,
-          searchedEmployees: sorted,
-          order: "ascend"
-        });
-      }
-      
-    };
+    let newEmpArray = employees.filter((employee) => employee.name.first.toLowerCase().includes(charsForFilter) || employee.name.last.toLowerCase().includes(charsForFilter) || employee.dob.date.includes(charsForFilter) || employee.email.toLowerCase().includes(charsForFilter)
+      );
+
+    // Updating the input's state
+    this.setState({
+      searchedEmployees: newEmpArray,
+    });
+  };
+
+  sortByName = () => {
+    if (this.state.order === "ascend") {
+      const sorted = [...this.state.employees].sort((obj1, obj2) => {
+        return obj2.name.last.localeCompare(obj1.name.last);
+      });
+      this.setState({
+        employees: sorted,
+        searchedEmployees: sorted,
+        order: "descend",
+      });
+    } else {
+      const sorted = [...this.state.employees].sort((obj1, obj2) => {
+        return obj1.name.last.localeCompare(obj2.name.last);
+      });
+      this.setState({
+        employees: sorted,
+        searchedEmployees: sorted,
+        order: "ascend",
+      });
+    }
+  };
 
   render() {
     return (
       <>
         <Search search={this.handleSearch} />
-        <DataTable employees={this.state.searchedEmployees} onClick={this.sortByName}/>
+        <DataTable
+          employees={this.state.searchedEmployees}
+          onClick={this.sortByName}
+        />
       </>
     );
   }

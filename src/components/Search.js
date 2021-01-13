@@ -1,6 +1,6 @@
 import React from "react";
 
-function Search({search, onChange}) {
+function Search({search}) {
   return (
     <div className="d-flex justify-content-center">
       <form className="d-flex mt-5 mb-5 w-25">
@@ -9,7 +9,8 @@ function Search({search, onChange}) {
           type="search"
           placeholder="Search"
           aria-label="Search"
-          onChange={onChange}
+          onChange={search}
+          name="search"
         />
       </form>
     </div>

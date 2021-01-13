@@ -7,14 +7,14 @@ function DataTable({ employees, onClick }) {
       <table className="table text-center">
         <thead>
           <tr className="bg-info">
-            <th scope="col">Picture</th>
-            <th scope="col">First Name</th>
-            <th scope="col" onClick={onClick}>
+            <th scope="col" name="picture">Picture</th>
+            <th scope="col" name="first" onClick={onClick}>First Name</th>
+            <th scope="col" name="last" onClick={onClick}>
               Last Name
             </th>
-            <th scope="col">Phone</th>
-            <th scope="col">Email</th>
-            <th scope="col">DOB</th>
+            <th scope="col" name="phone" onClick={onClick}>Phone</th>
+            <th scope="col" name="email" onClick={onClick}>Email</th>
+            <th scope="col" name="dob" onClick={onClick}>DOB</th>
           </tr>
         </thead>
         <DataBody employees={employees} />
