@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { Component } from "react";
 import DataTable from "./DataTable";
 import Search from "./Search";
@@ -11,9 +10,10 @@ class DataMain extends Component {
   };
 
   async componentDidMount() {
-    const data = await axios.get(url);
+    const data = await fetch(url);
     const { results: employees } = await data.json();
     this.setState({ employees });
+    console.log(this.state.employees)
   }
 
   render() {

@@ -1,11 +1,13 @@
-import React from 'react'
+import React from "react";
 
 function Header() {
-    return (
-        <div>
-           <h1>Employee Directory</h1>
-        </div>
-    )
+  return (
+    <nav className="navbar navbar-light bg-primary text-center">
+      <div className="container-fluid text-center">
+        <h1 className="text-white text-center">Employee Directory</h1>
+      </div>
+    </nav>
+  );
 }
 
-export default Header
+export default Header;
