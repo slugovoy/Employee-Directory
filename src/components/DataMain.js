@@ -8,14 +8,20 @@ class DataMain extends Component {
   state = {
     employees: [],
     searchedEmployees: [],
-    order: "descend"
+    order: ""
   };
 
   async componentDidMount() {
     const data = await fetch(url);
     const { results: employees } = await data.json();
-    this.setState({ employees: employees,
-      searchedEmployees: employees
+    let ascSort = employees.sort((a, b) => {
+      return a.name.last.localeCompare(b.name.last);
+    });
+
+    this.setState({ 
+      employees: ascSort,
+      searchedEmployees: ascSort,
+      order: "ascend"
      });
     console.log(this.state.employees)
   }
@@ -33,28 +39,36 @@ class DataMain extends Component {
   //   });
   // }
 
-  // compareBy(key) {
-  //   return function (a, b) {
-  //     if (""+a[key]<(""+b[key])) return -1;
-  //     if (""+a[key]>(""+b[key])) return 1;
-  //     return 0;
-  //   };}
-    
-  //   sortBy(key) {
-  //   let arrayCopy = [...this.state.data];
-  //   arrayCopy.sort(this.compareBy(key));
-  //   //arrayCopy.reverse(); for descending
-  //   this.setState({data: arrayCopy});
-  //   } 
-    
-  //   //write this in th
-  //   onClick={() => this.sortBy('column name')}
+  
+    sortByName = () => {
+      if(this.state.order === "ascend"){
+
+        const sorted = [...this.state.employees]
+        .sort((a, b) => {
+          return b.name.last.localeCompare(a.name.last);
+        });
+        this.setState({employees: sorted,
+          searchedEmployees: sorted,
+          order: "descend"
+        });
+      } else {
+        const sorted = [...this.state.employees]
+        .sort((a, b) => {
+          return a.name.last.localeCompare(b.name.last);
+        });
+        this.setState({employees: sorted,
+          searchedEmployees: sorted,
+          order: "ascend"
+        });
+      }
+      
+    };
 
   render() {
     return (
       <>
         <Search search={this.handleSearch} />
-        <DataTable employees={this.state.searchedEmployees} />
+        <DataTable employees={this.state.searchedEmployees} onClick={this.sortByName}/>
       </>
     );
   }
