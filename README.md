@@ -1,6 +1,6 @@
 # Employee-Directory
 
-React-Weather-App is an application  that gives the  user weather information based on his/her input. 
+Employee-Directory is an application  that gives the  user ability to view employee directory, sort them and filter through them. 
 
 Checkout the [Deployed app here](https://loving-elion-8ee0ea.netlify.app/).
 
