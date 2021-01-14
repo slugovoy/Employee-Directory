@@ -1,5 +1,4 @@
 # Employee-Directory
-https://loving-elion-8ee0ea.netlify.app/
 
 React-Weather-App is an application  that gives the  user weather information based on his/her input. 
 
