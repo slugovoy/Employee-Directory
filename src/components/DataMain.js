@@ -1,17 +1,19 @@
 import React, { Component } from "react";
 import DataTable from "./DataTable";
 import Search from "./Search";
-import _ from "lodash"
-
+import _ from "lodash";
+// Variable for url
 const url = "https://randomuser.me/api/?results=10&nat=us";
-
+// Main class component
 class DataMain extends Component {
+  // State that keeps the data
   state = {
     employees: [],
     searchedEmployees: [],
     order: "",
     search: "",
   };
+  // Method that fires when page loads and puts data into state
 
   async componentDidMount() {
     const data = await fetch(url);
@@ -27,6 +29,7 @@ class DataMain extends Component {
     });
   }
 
+  // Method that handles dynamic search using filter function and and string's includes method
   handleSearch = (event) => {
     event.preventDefault();
 
@@ -38,8 +41,13 @@ class DataMain extends Component {
       search: charsForFilter,
     });
 
-    let newEmpArray = employees.filter((employee) => employee.name.first.toLowerCase().includes(charsForFilter) || employee.name.last.toLowerCase().includes(charsForFilter) || employee.dob.date.includes(charsForFilter) || employee.email.toLowerCase().includes(charsForFilter)
-      );
+    let newEmpArray = employees.filter(
+      (employee) =>
+        employee.name.first.toLowerCase().includes(charsForFilter) ||
+        employee.name.last.toLowerCase().includes(charsForFilter) ||
+        employee.dob.date.includes(charsForFilter) ||
+        employee.email.toLowerCase().includes(charsForFilter)
+    );
 
     // Updating the input's state
     this.setState({
@@ -47,38 +55,15 @@ class DataMain extends Component {
     });
   };
 
-  // sortByName = () => {
-  //   if (this.state.order === "ascend") {
-  //     const sorted = [...this.state.employees].sort((obj1, obj2) => {
-  //       return obj2.name.last.localeCompare(obj1.name.last);
-  //     });
-  //     this.setState({
-  //       employees: sorted,
-  //       searchedEmployees: sorted,
-  //       order: "descend",
-  //     });
-  //   } else {
-  //     const sorted = [...this.state.employees].sort((obj1, obj2) => {
-  //       return obj1.name.last.localeCompare(obj2.name.last);
-  //     });
-  //     this.setState({
-  //       employees: sorted,
-  //       searchedEmployees: sorted,
-  //       order: "ascend",
-  //     });
-  //   }
-  // };
-
-
+  // Method that handles sort by ascending or descending order 
   sortByColumnName = (e) => {
     e.preventDefault();
-      const sortName = e.target.className
-      
+    const sortName = e.target.className;
+
     if (this.state.order === "ascend") {
       const sorted = [...this.state.employees].sort((obj1, obj2) => {
-        
-        let thingToCompare1 = _.get(obj1, sortName)
-        let thingToCompare2 = _.get(obj2, sortName)
+        let thingToCompare1 = _.get(obj1, sortName);
+        let thingToCompare2 = _.get(obj2, sortName);
         return thingToCompare2.localeCompare(thingToCompare1);
       });
       this.setState({
@@ -88,8 +73,8 @@ class DataMain extends Component {
       });
     } else {
       const sorted = [...this.state.employees].sort((obj1, obj2) => {
-        let thingToCompare1 = _.get(obj1, sortName)
-        let thingToCompare2 = _.get(obj2, sortName)
+        let thingToCompare1 = _.get(obj1, sortName);
+        let thingToCompare2 = _.get(obj2, sortName);
         return thingToCompare1.localeCompare(thingToCompare2);
       });
       this.setState({
@@ -99,7 +84,7 @@ class DataMain extends Component {
       });
     }
   };
-
+// Render on a page
   render() {
     return (
       <>

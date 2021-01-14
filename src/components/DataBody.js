@@ -1,5 +1,5 @@
 import React from "react";
-
+// Function that renders body of table with employee's rows
 function DataBody({ employees }) {
   return (
     <tbody className="text-center">

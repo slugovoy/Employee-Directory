@@ -1,5 +1,5 @@
 import React from "react";
-
+// Header function that renders header for app
 function Header() {
   return (
     <nav className="navbar navbar-light bg-primary text-center">

@@ -1,5 +1,5 @@
 import React from "react";
-
+// function for search field
 function Search({search}) {
   return (
     <div className="d-flex justify-content-center">

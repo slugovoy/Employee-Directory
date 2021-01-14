@@ -1,6 +1,6 @@
 import React from "react";
 import DataBody from "./DataBody";
-
+// Render table's header and body part
 function DataTable({ employees, onClick }) {
   return (
     <>
