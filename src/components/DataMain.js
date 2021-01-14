@@ -55,10 +55,10 @@ class DataMain extends Component {
     });
   };
 
-  // Method that handles sort by ascending or descending order 
+  // Method that handles sort by ascending or descending order
   sortByColumnName = (e) => {
     e.preventDefault();
-    const sortName = e.target.className;
+    const sortName = e.target.dataset.name;
 
     if (this.state.order === "ascend") {
       const sorted = [...this.state.employees].sort((obj1, obj2) => {
@@ -84,7 +84,7 @@ class DataMain extends Component {
       });
     }
   };
-// Render on a page
+  // Render on a page
   render() {
     return (
       <>

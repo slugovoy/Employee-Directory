@@ -13,6 +13,6 @@ code {
     monospace;
 }
 /* Styling for cursor */
-th {
+.hover {
   cursor: pointer;
 }
