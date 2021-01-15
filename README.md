@@ -22,7 +22,7 @@ You don't need to install it, just simply go to this [Link](https://employee-dir
 
 * Gif:
 
-![Demo](./public/EmployeeDir.gif)
+![Demo](./public/EmployeeDirGif.gif)
 
 
 * Description:
