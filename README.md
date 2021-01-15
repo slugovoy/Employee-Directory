@@ -2,7 +2,7 @@
 
 Employee-Directory is an application  that gives the  user ability to view employee directory, sort them and filter through them. 
 
-Checkout the [Deployed app here](https://loving-elion-8ee0ea.netlify.app/).
+Checkout the [Deployed app here](https://employee-directory1.netlify.app/).
 
 ## Table of Contents
 * [Installation](#installation)
@@ -15,7 +15,7 @@ Checkout the [Deployed app here](https://loving-elion-8ee0ea.netlify.app/).
 
 ## Installation
 
-You don't need to install it, just simply go to this [Link](https://loving-elion-8ee0ea.netlify.app/) or, if your prefer, copy this link https://loving-elion-8ee0ea.netlify.app/ and paste in your browser.
+You don't need to install it, just simply go to this [Link](https://employee-directory1.netlify.app/) or, if your prefer, copy this link https://employee-directory1.netlify.app/ and paste in your browser.
 
 
 ## Usage
