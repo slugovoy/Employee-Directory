@@ -3,7 +3,7 @@ import DataTable from "./DataTable";
 import Search from "./Search";
 import _ from "lodash";
 // Variable for url
-const url = "https://randomuser.me/api/?results=10&nat=us";
+const url = "https://randomuser.me/api/?results=200&nat=us";
 // Main class component
 class DataMain extends Component {
   // State that keeps the data

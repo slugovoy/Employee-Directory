@@ -15,4 +15,29 @@ code {
 /* Styling for cursor */
 .hover {
   cursor: pointer;
+  border: 1px solid black;
+  
 }
+.navbar{
+  width: 100%;
+}
+.header-title{
+  font-size: 3rem;
+}
+
+.imageField{
+  background-color: rgb(80, 106, 117);
+}
+td{
+  border-right: 1px solid black;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+img {
+  border-radius: 4px;
+}
+th{
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+

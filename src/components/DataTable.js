@@ -7,7 +7,7 @@ function DataTable({ employees, onClick }) {
       <table className="table text-center">
         <thead>
           <tr className="bg-info">
-            <th scope="col" data-name="picture">Picture</th>
+            <th scope="col" className="hover" data-name="picture">Picture</th>
             <th scope="col" className="hover" data-name="name.first" onClick={onClick}>First Name</th>
             <th scope="col" className="hover" data-name="name.last" onClick={onClick}>
               Last Name
